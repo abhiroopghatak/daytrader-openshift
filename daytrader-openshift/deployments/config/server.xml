@@ -26,22 +26,9 @@
 	<application id="daytrader7" location="daytrader-ee7.ear" name="daytrader7"/>
 
 
-<!-- Derby
-	<connectionManager agedTimeout="-1" connectionTimeout="0" id="conMgr1" maxIdleTime="-1" maxPoolSize="100" minPoolSize="100" purgePolicy="FailingConnectionOnly" reapTime="-1"/> 
 
-	<jdbcDriver id="DerbyEmbedded" libraryRef="DerbyLib"/>
-	<library filesetRef="DerbyFileset" id="DerbyLib"/>
-	<fileset dir="${server.config.dir}/Daytrader7SampleDerbyLibs" id="DerbyFileset" includes="derby-10.10.1.1.jar"/>
 
-	<authData id="TradeDataSourceAuthData" password="db_password" user="db_username"/>
-	<authData id="TradeAdminAuthData" password="db_password" user="db_username"/>
-
-	<dataSource connectionManagerRef="conMgr1" id="DefaultDataSource" isolationLevel="TRANSACTION_READ_COMMITTED" jdbcDriverRef="DerbyEmbedded" jndiName="jdbc/TradeDataSource" statementCacheSize="60"> 
-		<properties.derby.embedded createDatabase="create" databaseName="${server.config.dir}/data/tradedb" password="db_password" user="db_username"/> 
-	</dataSource>
--->
-
-<!-- MySQL -->
+<!-- aghatak:MySQL CONFIG STARTS HERE-->
   <library id="Daytrader">
     <fileset dir="${server.config.dir}/MySQLLibs" includes="*.jar"/>
   </library>
@@ -53,6 +40,8 @@
     <jdbcDriver libraryRef="Daytrader"/>
     <properties databaseName="daytraderdb" serverName="mysql" portNumber="3306" user="daytrader" password="daytrader"/>
   </dataSource>
+  
+  <!-- aghatak:MySQL CONFIG ENDS HERE-->
 
 	<messagingEngine id="defaultME">
 		<queue id="TradeBrokerQueue"/>
